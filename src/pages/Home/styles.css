@@ -1,0 +1,97 @@
+.conteudo {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.background {
+  height: 100vh;
+  position: absolute;
+  left: 0;
+}
+
+.info {
+  width: 60%;
+  margin-right: 90px;
+  margin-top: 40px;
+  color: azure;
+}
+
+input {
+  border: 1px solid #999999;
+  border-radius: 22px;
+  min-width: 250px;
+  width: 70%;
+  margin-right: 12px;
+  background: transparent;
+  font-size: 18px;
+  padding: 10px;
+  color: azure;
+}
+
+button {
+  border: 1px solid #999999;
+  border-radius: 22px;
+  min-width: 90px;
+  margin-right: 12px;
+  color: azure;
+  background: #2d333b;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.7;
+}
+
+.perfil{
+    display: flex;
+    margin: 20px 0;
+
+}
+
+.profile {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  border: 2px solid #e5e5e5;
+  background:lightgray 50% / cover no-repeat;
+  margin-right: 20px;
+}
+
+.perfil h3 {
+    color: #999;
+    font-family: JetBrains Mono;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.perfil span {
+    display: block;
+    color: #999999;
+    font-size: 25px;
+    margin: 0;
+}
+
+.perfil p {
+    color: #999;
+    font-family: JetBrains Mono;
+    font-size: 19px;
+    margin: 20px 0 0 0;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.repo {
+  font-size: 32px;
+  margin: 12px 0;
+  text-align: center;
+  max-width: 620px;
+  letter-spacing: 1px;
+}

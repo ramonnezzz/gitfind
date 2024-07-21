@@ -1,8 +1,10 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { Header } from "../../components/Header";
 import background from "../../assets/background.png";
 import "./styles.css";
 import ItemList from "../../components/ItemList";
 import { useState } from "react";
+import { fadeIn } from "./variants";
 
 function App() {
   const [user, setUser] = useState("");
@@ -28,55 +30,69 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header />
-      <div className="conteudo">
-        <img src={background} className="background" alt="background.png" />
-        <div className="info">
-          <div>
-            <input
-              name="user"
-              value={user}
-              onChange={(event) => setUser(event.target.value)}
-              placeholder="@username"
-              required
-            />
-            <button onClick={handleGetData}>Search</button>
-          </div>
-          {currentUser?.name ? (
-            <>
-              <div className="perfil">
-                <img
-                  src={currentUser.avatar_url}
-                  className="profile"
-                  alt="profile-user"
-                />
+    <AnimatePresence>
+      <motion.div
+        variants={fadeIn("down", 0.2)}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+      >
+        <Header />
+        <div className="conteudo">
+          <img
+          variants={fadeIn('right', 0.6)}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          src={background}
+          className="background"
+          alt="background.png" 
+          />
+          <div className="info">
+            <div>
+              <input
+                name="user"
+                value={user}
+                onChange={(event) => setUser(event.target.value)}
+                placeholder="@username"
+                required
+              />
+              <button onClick={handleGetData}>Search</button>
+            </div>
+            {currentUser?.name ? (
+              <>
+                <div className="perfil">
+                  <img
+                    src={currentUser.avatar_url}
+                    className="profile"
+                    alt="profile-user"
+                  />
 
-                <div>
-                  <h3>{currentUser.name}</h3>
-                  <span>@{currentUser.login}</span>
-                  <p>{currentUser.bio}</p>
+                  <div>
+                    <h3>{currentUser.name}</h3>
+                    <span>@{currentUser.login}</span>
+                    <p>{currentUser.bio}</p>
+                  </div>
                 </div>
-              </div>
-              <hr />
-            </>
-          ) : null}
-          {repos?.length ? (
-
-          <div>
-            <h4 className="repo">Repositories</h4>
-            {repos.map((repo, index) => (
+                <hr />
+              </>
+            ) : null}
+            {repos?.length ? (
+              <div>
+                <h4 className="repo">Repositories</h4>
+                {repos.map((repo, index) => (
                   <ItemList
                     key={index}
                     title={repo.name}
                     description={repo.description}
                   />
                 ))}
-          </div>) :null}
-
+              </div>
+            ) : null}
+          </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
